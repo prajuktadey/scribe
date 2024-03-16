@@ -1,0 +1,7 @@
+chainlit
+langchain
+langchain_community
+PyPDF2
+pypdf
+chromadb
+langchainhub
