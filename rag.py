@@ -40,13 +40,11 @@ async def on_chat_start():
     await msg.send()
 
     # Read the PDF file
-        
-    #pdf_stream = BytesIO(content)
+
     pdf = PyPDF2.PdfReader(file.path)
     pdf_text = ""
     for page in pdf.pages:
         pdf_text += page.extract_text()
-        
 
     # Split the text into chunks
     texts = text_splitter.split_text(pdf_text)
@@ -88,9 +86,8 @@ async def on_chat_start():
 @cl.on_message
 async def main(message: cl.Message):
     chain = cl.user_session.get("chain")  # type: ConversationalRetrievalChain
-    cb = cl.AsyncLangchainCallbackHandler()
 
-    res = await chain.ainvoke(message.content, callbacks=[cb])
+    res = await chain.ainvoke(message.content)  # Removed redundant callback argument
     answer = res["answer"]
     source_documents = res["source_documents"]  # type: List[Document]
 
