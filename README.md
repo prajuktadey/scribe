@@ -7,11 +7,18 @@ Scribe is a collaborative project developed by a group of 6 students from Kaling
 To use Scribe, ensure that you have Python 3.9 or later installed on your system.
 
 ## Steps to Replicate 
-
-1. **Clone the Repository:** Begin by cloning the Scribe repository to your local machine.
+1. **Download Ollama:** Begin by downloading Ollama from https://ollama.com/download
+2. **Start the Ollama service:**
    ```bash
-   git clone https://github.com/prajuktadey/langchain-ollama-chainlit.git
-   cd langchain-ollama-chainlit
+   sudo systemctl start ollama
+3. **Pull Mistral:** After downloading Ollama, you'll need to use a command to download the
+specific LLM model you want to use, in this case, "mistral"
+   ```bash
+   ollama pull mistral
+4. **Clone the Repository:** clone the Scribe repository to your local machine.
+   ```bash
+   git clone https://github.com/prajuktadey/minor-project.git
+   cd minor-project
 
 ### Set Up Virtual Environment
 
